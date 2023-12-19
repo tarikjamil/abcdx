@@ -299,24 +299,54 @@ gsap.set("#solution--dropdown", { display: "none", y: "-100%" });
 let isAboutOpen = false;
 let isSolutionOpen = false;
 
-document.querySelector("#about-trigger").addEventListener("click", function () {
-  gsap.to("#about--dropdown", {
-    duration: 0.5,
-    ease: "power1.out",
-    display: isAboutOpen ? "none" : "flex",
-    y: isAboutOpen ? "-100%" : "0%",
-  });
-  isAboutOpen = !isAboutOpen;
-});
-
-document
-  .querySelector("#solution-trigger")
-  .addEventListener("click", function () {
+function closeDropdowns() {
+  if (isAboutOpen) {
+    gsap.to("#about--dropdown", {
+      duration: 0.5,
+      ease: "power1.out",
+      display: "none",
+      y: "-100%",
+    });
+    isAboutOpen = false;
+  }
+  if (isSolutionOpen) {
     gsap.to("#solution--dropdown", {
       duration: 0.5,
       ease: "power1.out",
-      display: isSolutionOpen ? "none" : "flex",
-      y: isSolutionOpen ? "-100%" : "0%",
+      display: "none",
+      y: "-100%",
     });
-    isSolutionOpen = !isSolutionOpen;
+    isSolutionOpen = false;
+  }
+}
+
+document
+  .querySelector("#about-trigger")
+  .addEventListener("click", function (event) {
+    event.stopPropagation();
+    closeDropdowns();
+    gsap.to("#about--dropdown", {
+      duration: 0.5,
+      ease: "power1.out",
+      display: "flex",
+      y: "0%",
+    });
+    isAboutOpen = true;
   });
+
+document
+  .querySelector("#solution-trigger")
+  .addEventListener("click", function (event) {
+    event.stopPropagation();
+    closeDropdowns();
+    gsap.to("#solution--dropdown", {
+      duration: 0.5,
+      ease: "power1.out",
+      display: "flex",
+      y: "0%",
+    });
+    isSolutionOpen = true;
+  });
+
+// Close dropdowns when clicking anywhere else on the page
+document.addEventListener("click", closeDropdowns);
