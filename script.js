@@ -31,14 +31,14 @@ function pageLoad() {
   tl.to(".main-wrapper", {
     opacity: 1,
     ease: "Quint.easeOut",
-    duration: 0.5,
+    duration: 0.3,
   });
   tl.from(".loading-animation", {
     y: "20rem",
     opacity: "0",
     stagger: { each: 0.1, from: "start" },
     ease: "Quint.easeOut",
-    duration: 0.5,
+    duration: 0.3,
   });
 }
 pageLoad();
@@ -178,7 +178,7 @@ $(".menu-link").click(function () {
         opacity: 0,
       },
       {
-        duration: 0.5,
+        duration: 0.3,
         delay: 0.4,
         y: "0rem",
         opacity: 1,
@@ -283,7 +283,7 @@ $(".btn--arrow").on("mouseenter mouseleave", function () {
   );
   $(this).toggleClass("is--hover");
   Flip.from(state, {
-    duration: 0.5,
+    duration: 0.3,
     ease: "Quint.easeOut",
   });
 });
@@ -299,6 +299,7 @@ gsap.set("#solution--dropdown", { display: "none", y: "-100%" });
 let isAboutOpen = false;
 let isSolutionOpen = false;
 
+// Function to close dropdowns and remove active class from triggers
 function closeDropdowns() {
   if (isAboutOpen) {
     gsap.to("#about--dropdown", {
@@ -307,6 +308,7 @@ function closeDropdowns() {
       display: "none",
       y: "-100%",
     });
+    document.querySelector("#about-trigger").classList.remove("is--active");
     isAboutOpen = false;
   }
   if (isSolutionOpen) {
@@ -316,10 +318,12 @@ function closeDropdowns() {
       display: "none",
       y: "-100%",
     });
+    document.querySelector("#solution-trigger").classList.remove("is--active");
     isSolutionOpen = false;
   }
 }
 
+// Event listener for the about trigger
 document
   .querySelector("#about-trigger")
   .addEventListener("click", function (event) {
@@ -331,9 +335,11 @@ document
       display: "flex",
       y: "0%",
     });
+    this.classList.toggle("is--active");
     isAboutOpen = true;
   });
 
+// Event listener for the solution trigger
 document
   .querySelector("#solution-trigger")
   .addEventListener("click", function (event) {
@@ -345,8 +351,9 @@ document
       display: "flex",
       y: "0%",
     });
+    this.classList.toggle("is--active");
     isSolutionOpen = true;
   });
 
-// Close dropdowns when clicking anywhere else on the page
+// Close dropdowns and remove active class when clicking elsewhere
 document.addEventListener("click", closeDropdowns);
