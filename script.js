@@ -302,8 +302,8 @@ let isSolutionOpen = false;
 function closeDropdowns() {
   if (isAboutOpen) {
     gsap.to("#about--dropdown", {
-      duration: 0.5,
-      ease: "power1.out",
+      duration: 0.3,
+      ease: "Quint.easeOut",
       display: "none",
       y: "-100%",
     });
@@ -311,8 +311,8 @@ function closeDropdowns() {
   }
   if (isSolutionOpen) {
     gsap.to("#solution--dropdown", {
-      duration: 0.5,
-      ease: "power1.out",
+      duration: 0.3,
+      ease: "Quint.easeOut",
       display: "none",
       y: "-100%",
     });
@@ -326,8 +326,8 @@ document
     event.stopPropagation();
     closeDropdowns();
     gsap.to("#about--dropdown", {
-      duration: 0.5,
-      ease: "power1.out",
+      duration: 0.3,
+      ease: "Quint.easeOut",
       display: "flex",
       y: "0%",
     });
@@ -340,8 +340,8 @@ document
     event.stopPropagation();
     closeDropdowns();
     gsap.to("#solution--dropdown", {
-      duration: 0.5,
-      ease: "power1.out",
+      duration: 0.3,
+      ease: "Quint.easeOut",
       display: "flex",
       y: "0%",
     });
