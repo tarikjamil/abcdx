@@ -17,3 +17,11 @@ html.lenis {
 #about--dropdown {
   display: none;
 }
+
+.navlink--dropdown-trigger.is--active {
+  color: black;
+}
+
+.navlink--dropdown-trigger.is--active .navlink-shape {
+  opacity: 1;
+}
