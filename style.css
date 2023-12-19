@@ -13,3 +13,7 @@ html.w-editor .main-wrapper {
 html.lenis {
   height: auto;
 }
+
+#about--dropdown {
+  display: none;
+}
