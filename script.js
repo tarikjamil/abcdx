@@ -297,7 +297,8 @@ gsap.set("#about--dropdown", { display: "none", y: "-100%" });
 
 document.querySelector("#about-trigger").addEventListener("click", function () {
   gsap.to("#about--dropdown", {
-    duration: 1, // duration of the animation
+    duration: 0.5,
+    ease: "power1.out", // duration of the animation
     display: "flex",
     y: "0%",
   });
