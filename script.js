@@ -292,17 +292,21 @@ $(".search--btn").on("mouseenter mouseleave", function () {
   $(this).siblings(".is--search").toggleClass("is--hover");
 });
 
-// GSAP animation
+// GSAP animation setup
 gsap.set("#about--dropdown", { display: "none", y: "-100%" });
 gsap.set("#solution--dropdown", { display: "none", y: "-100%" });
+
+let isAboutOpen = false;
+let isSolutionOpen = false;
 
 document.querySelector("#about-trigger").addEventListener("click", function () {
   gsap.to("#about--dropdown", {
     duration: 0.5,
-    ease: "power1.out", // duration of the animation
-    display: "flex",
-    y: "0%",
+    ease: "power1.out",
+    display: isAboutOpen ? "none" : "flex",
+    y: isAboutOpen ? "-100%" : "0%",
   });
+  isAboutOpen = !isAboutOpen;
 });
 
 document
@@ -310,8 +314,9 @@ document
   .addEventListener("click", function () {
     gsap.to("#solution--dropdown", {
       duration: 0.5,
-      ease: "power1.out", // duration of the animation
-      display: "flex",
-      y: "0%",
+      ease: "power1.out",
+      display: isSolutionOpen ? "none" : "flex",
+      y: isSolutionOpen ? "-100%" : "0%",
     });
+    isSolutionOpen = !isSolutionOpen;
   });
