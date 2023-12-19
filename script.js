@@ -294,6 +294,7 @@ $(".search--btn").on("mouseenter mouseleave", function () {
 
 // GSAP animation
 gsap.set("#about--dropdown", { display: "none", y: "-100%" });
+gsap.set("#solution--dropdown", { display: "none", y: "-100%" });
 
 document.querySelector("#about-trigger").addEventListener("click", function () {
   gsap.to("#about--dropdown", {
@@ -303,3 +304,14 @@ document.querySelector("#about-trigger").addEventListener("click", function () {
     y: "0%",
   });
 });
+
+document
+  .querySelector("#solution-trigger")
+  .addEventListener("click", function () {
+    gsap.to("#solution--dropdown", {
+      duration: 0.5,
+      ease: "power1.out", // duration of the animation
+      display: "flex",
+      y: "0%",
+    });
+  });
