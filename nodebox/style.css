@@ -1,0 +1,15 @@
+.main-wrapper {
+  opacity: 0;
+}
+
+html.w-editor .main-wrapper {
+  opacity: 1;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+html.lenis {
+  height: auto;
+}
