@@ -25,3 +25,7 @@ html.lenis {
 .navlink--dropdown-trigger.is--active .navlink-shape {
   opacity: 1;
 }
+
+.splide__track {
+  overflow: visible;
+}
