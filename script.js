@@ -295,9 +295,11 @@ $(".search--btn").on("mouseenter mouseleave", function () {
 // GSAP animation setup
 gsap.set("#about--dropdown", { display: "none", y: "-100%" });
 gsap.set("#solution--dropdown", { display: "none", y: "-100%" });
+gsap.set("#news--dropdown", { display: "none", y: "-100%" });
 
 let isAboutOpen = false;
 let isSolutionOpen = false;
+let isNewsOpen = false;
 
 // Function to close dropdowns and remove active class from triggers
 function closeDropdowns() {
@@ -363,6 +365,22 @@ document
     });
     this.classList.toggle("is--active");
     isSolutionOpen = true;
+  });
+
+// Event listener for the news trigger
+document
+  .querySelector("#news-trigger")
+  .addEventListener("click", function (event) {
+    event.stopPropagation();
+    closeDropdowns();
+    gsap.to("#news--dropdown", {
+      duration: 0.3,
+      ease: "Quint.easeOut",
+      display: "flex",
+      y: "0%",
+    });
+    this.classList.toggle("is--active");
+    isNewsOpen = true;
   });
 
 // Close dropdowns and remove active class when clicking elsewhere
