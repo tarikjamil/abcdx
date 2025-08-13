@@ -321,6 +321,16 @@ function closeDropdowns() {
     document.querySelector("#solution-trigger").classList.remove("is--active");
     isSolutionOpen = false;
   }
+  if (isNewsOpen) {
+    gsap.to("#news--dropdown", {
+      duration: 0.3,
+      ease: "Quint.easeOut",
+      display: "none",
+      y: "-100%",
+    });
+    document.querySelector("#news-trigger").classList.remove("is--active");
+    isNewsOpen = false;
+  }
 }
 
 // Event listener for the about trigger
